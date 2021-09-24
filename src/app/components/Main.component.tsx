@@ -22,7 +22,6 @@ export const Main = () => (
     <Router history={history}>
         <Provider store={store}>
             <div>
-                <ConnectedNavigation></ConnectedNavigation>
                 <Route 
                     exact
                     path="/"

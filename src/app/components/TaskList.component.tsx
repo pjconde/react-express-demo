@@ -6,16 +6,20 @@ import { appState } from '../models/state.models';
 import { requestTaskCreation } from '../store/mutations';
 
 export const TaskList = (props: TaskListProps) => (
-    <div>
+    <div className="card p-2 m-2 col-6">
         <h3>{props.groupName}</h3>
         <div>
             {props.tasks.map(task => (
                 <Link to={`/task/${task.id}`} key={task.id}>
-                    <div>{task.name}</div>
+                    <div className="card p-2 mt-2">{task.name}</div>
                 </Link>
             ))}
         </div>
-        <button onClick={() => props.createNewTask(props.groupId)}>Add new</button>
+        <button 
+            onClick={() => props.createNewTask(props.groupId)}
+            className="btn btn-primary btn-block mt-2">
+                Add new
+        </button>
     </div>
 )
 

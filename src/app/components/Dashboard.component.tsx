@@ -5,10 +5,14 @@ import { DashboardProps } from '../models/props.models';
 import { ConnectedTaskList } from './TaskList.component';
 
 export const Dashboard = (props: DashboardProps) => (
-    <div>
-        <h2> Dashboard </h2>
+    <div className="row">
         {props.groups.map(group => (
-            <ConnectedTaskList key={group.id} groupId={group.id} groupName={group.name}></ConnectedTaskList>
+            <ConnectedTaskList 
+                className="col"
+                key={group.id}
+                groupId={group.id}
+                groupName={group.name}>
+            </ConnectedTaskList>
         ))}
     </div>
 )

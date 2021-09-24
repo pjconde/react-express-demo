@@ -7,26 +7,34 @@ import * as mutations from '../store/mutations'
 
 
 const TaskDetail = (props: TaskDetailProps) => (
-    <div>
-        <div>
-            <input onChange={props.setTaskName} value={props.task.name}></input>
-        </div>
-        <div>
-            <button onClick={() => props.setTaskCompletion(props.id, !props.isComplete)}>
-                {props.isComplete ? `Reopen` : `Complete`}
-            </button>
-        </div>
-        <div>
-            <select onChange={props.setTaskGroup} value={props.task.group}>
-                {props.groups.map(group => (
-                    <option key={group.id} value={group.id}>{group.name}</option>
-                ))}
-            </select>
-        </div>
-        <div> 
-            <Link to="/dashboard">
-                <button>Done</button>
-            </Link> 
+    <div className="card p-3 col-6 mt-4">
+        <div className="form-group">
+            <div>
+                <input
+                    onChange={props.setTaskName}
+                    value={props.task.name}
+                    className="form-control form-control-lg">
+                </input>
+            </div>
+            <div className="mt-3">
+                <button 
+                    className="btn btn-primary mt-2"
+                    onClick={() => props.setTaskCompletion(props.id, !props.isComplete)}>
+                    {props.isComplete ? `Reopen` : `Complete`}
+                </button>
+            </div>
+            <div className="mt-3">
+                <select onChange={props.setTaskGroup} value={props.task.group} className="form-control">
+                    {props.groups.map(group => (
+                        <option key={group.id} value={group.id}>{group.name}</option>
+                    ))}
+                </select>
+            </div>
+            <div className="mt-3"> 
+                <Link to="/dashboard">
+                    <button className="btn btn-primary mt-2">Done</button>
+                </Link> 
+            </div>
         </div>
     </div>
 );
